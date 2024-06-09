@@ -8,5 +8,5 @@ const MainButton = ({ text }) => {
 export default MainButton;
 
 MainButton.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
 };
