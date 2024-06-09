@@ -1,7 +1,10 @@
 // тут по можливості нічого не змінюємо
 
 @import "./scss/common.scss";
-
+@import "./scss/fonts.scss";
+* {
+  box-sizing: border-box;
+}
 body div,
 dl,
 dt,
@@ -80,4 +83,19 @@ q:after {
 abbr,
 acronym {
   border: 0;
+}
+button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+#root {
+  height: 100%;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

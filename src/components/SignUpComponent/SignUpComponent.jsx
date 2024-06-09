@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./SignUpComponent.module.scss";
 import { AuthContext } from "../../common/context/AuthContext";
-
+import MainButton from "../shared/MainButton/MainButton";
 const SignUpComponent = () => {
   const [user, setUser] = useState({
     email: "",
@@ -28,15 +28,19 @@ const SignUpComponent = () => {
         <input
           type="email"
           name="email"
+          className="mainInput"
+          placeholder="Enter your email"
           onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
         <input
           type="password"
           name="password"
+          className="mainInput"
+          placeholder="Password"
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
       </div>
-      <button type="submit">{error ? error : "Send user"}</button>
+      <MainButton text={error ? error : "Sign Up"} />
     </form>
   );
 };

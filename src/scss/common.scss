@@ -1,11 +1,9 @@
 // якщо селектор юзається більше чим 2 рази виносимо у цей файл )))
 .mainInput {
-  max-width: 294px;
   width: 100%;
-  padding: 13.6px 12.2px;
+  padding: 14px 12px;
   border-radius: 4px;
-  background-color: #c5c5c5;
-  text-align: center;
-  font-size: 10px;
+  background-color: #eeeeee;
   color: black;
+  border: 1px solid #c5c5c5;
 }

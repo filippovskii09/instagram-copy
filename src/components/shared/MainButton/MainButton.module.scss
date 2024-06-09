@@ -1,8 +1,7 @@
 .mainButton {
   max-width: 320px;
   width: 100%;
-  padding: 7px;
-  font-size: 20px;
+  padding: 14px;
   text-align: center;
   background-color: #1877f2;
   border-radius: 4px;
@@ -15,5 +14,8 @@
   }
   &:disabled {
     background-color: #6ea8f4;
+  }
+  &:focus {
+    outline: 2px solid black;
   }
 }
