@@ -10,3 +10,12 @@ Currently, two official plugins are available:
 Use this for checking prettier all files;
 
 - npm run fix
+
+як зробити коміт та залити його до гітхаб?
+
+1. npm run fix
+2. git add .
+3. git commit -m""
+4. git push origin назва гілки яку пушиш alex/IC-5
+
+Потім йдеш до гіт і створюєш пулл реквест
