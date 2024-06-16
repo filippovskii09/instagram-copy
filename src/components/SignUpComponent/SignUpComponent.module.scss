@@ -3,9 +3,34 @@
   flex-direction: column;
   row-gap: 14px;
   min-width: 300px;
+  border: 1px solid rgb(219, 219, 219);
+  padding: 30px;
+  @media (max-width: 530px) {
+    border: none;
+    padding: 15px;
+  }
+}
+.title {
+  text-align: center;
+  font-weight: 600;
+  margin: 25px 0px;
+  margin-top: 15px;
 }
 .wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+}
+.link {
+  font-size: 14px;
+  margin: 10px 0px;
+  margin-top: 20px;
+  text-align: center;
+  span {
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+.error {
+  color: red;
 }

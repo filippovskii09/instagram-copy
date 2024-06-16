@@ -7,6 +7,9 @@
   border-radius: 4px;
   transition: all 0.5s;
   color: #ffffff;
+  @media (max-width: 530px) {
+    max-width: unset;
+  }
   @media (any-hover: hover) {
     &:hover {
       background-color: #0e50a7;

@@ -44,11 +44,6 @@ fieldset,
 img {
   border: 0;
 }
-input {
-  border: 1px solid #b0b0b0;
-  color: #979797;
-  width: 190px;
-}
 address,
 caption,
 cite,
@@ -93,7 +88,11 @@ button {
   height: 100%;
 }
 .wrapper {
-  width: 100%;
+  width: 375px;
+  @media (max-width: 530px) {
+    width: 100%;
+  }
+  margin: 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
