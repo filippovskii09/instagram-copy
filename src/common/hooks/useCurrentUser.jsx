@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 const useCurrentUser = () => {
   const [currentUser, setCurrentUser] = useState(() => {
-    const storedCurrentUsers = localStorage.getItem("currentUser");
-    return storedCurrentUsers ? JSON.parse(storedCurrentUsers) : false;
+    const storedCurrentUser = localStorage.getItem("currentUser");
+    return storedCurrentUser ? JSON.parse(storedCurrentUser) : false;
   });
 
   useEffect(() => {
