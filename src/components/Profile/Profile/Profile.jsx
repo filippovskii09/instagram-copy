@@ -1,5 +1,71 @@
+import styles from "./Profile.module.scss";
+import BackButtonImage from "/images/icons/back-icon.svg";
+import AvatarImage from "/images/avatar.png";
 const Profile = () => {
-  return <div>Profile</div>;
+  const userLogin = true;
+
+  return (
+    <section className={styles.profile}>
+      <div className={styles.info}>
+        {userLogin ? (
+          <div className={styles.top}>
+            <h5 className={`${styles.username} ${styles.active}`}>
+              filippovskii09
+            </h5>
+            <button className={styles.burger}>
+              <div className={styles.line}></div>
+              <div className={styles.line}></div>
+              <div className={styles.line}></div>
+            </button>
+          </div>
+        ) : (
+          <div className={styles.top}>
+            <button className={styles.back}>
+              <img src={BackButtonImage} alt="back-button" />
+            </button>
+            <h5 className={styles.username}>filippovskii09</h5>
+            <button className={styles.dots}>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+              <div className={styles.dot}></div>
+            </button>
+          </div>
+        )}
+        <div className={styles.userInfo}>
+          <div className={styles.userInfoTop}>
+            <img src={AvatarImage} alt="avatar logo" className={styles.image} />
+            <div className={styles.infoRow}>
+              <div className={styles.infoColumn}>
+                <p className={styles.columnCount}>1,132</p>
+                <p className={styles.columnName}>Posts</p>
+              </div>
+              <div className={styles.infoColumn}>
+                <p className={styles.columnCount}>60K</p>
+                <p className={styles.columnName}>Followers</p>
+              </div>
+              <div className={styles.infoColumn}>
+                <p className={styles.columnCount}>4</p>
+                <p className={styles.columnName}>Following</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.userName}>Artur Filippovskii</div>
+        </div>
+        <div className={styles.userActions}>
+          {userLogin ? (
+            <button className={styles.action}>Edit profile</button>
+          ) : (
+            <>
+              <button className={`${styles.action} ${styles.secondaryButton}`}>
+                Folow
+              </button>
+              <button className={styles.action}>Message</button>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Profile;

@@ -1,5 +1,7 @@
+import Profile from "../components/Profile/Profile/Profile";
+
 const ProfilePage = () => {
-  return <div className="wrapper">Profile page</div>;
+  return <Profile />;
 };
 
 export default ProfilePage;

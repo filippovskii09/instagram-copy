@@ -29,6 +29,7 @@ const SignUpComponent = () => {
       return;
     } else if (existUsername) {
       setError("User with this username allready exists");
+      return;
     } else {
       navigate("/profile");
       setUsers((prevState) => [...prevState, user]);
