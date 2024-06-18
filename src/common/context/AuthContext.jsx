@@ -7,11 +7,18 @@ export const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const { users, setUsers } = useGetAllUsers();
-  const { currentUser, setCurrentUser } = useCurrentUser();
+  const { currentUser, setCurrentUser, isLogin, setIsLogin } = useCurrentUser();
 
   return (
     <AuthContext.Provider
-      value={{ users, setUsers, currentUser, setCurrentUser }}
+      value={{
+        users,
+        setUsers,
+        currentUser,
+        setCurrentUser,
+        isLogin,
+        setIsLogin,
+      }}
     >
       {children}
     </AuthContext.Provider>

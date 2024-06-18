@@ -12,20 +12,21 @@ const LoginComponent = () => {
   });
 
   const [error, setError] = useState(null);
-  const { users, setCurrentUser } = useContext(AuthContext);
+  const { users, setCurrentUser, setIsLogin } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const existEmail = users.some(
+    const existingUser = users.filter(
       (existUser) =>
         existUser.email === user.email && existUser.password === user.password,
     );
 
-    if (existEmail) {
-      setCurrentUser(true);
+    if (existingUser) {
+      setIsLogin(true);
+      setCurrentUser(existingUser[0]);
       navigate("/profile");
       return;
     } else {

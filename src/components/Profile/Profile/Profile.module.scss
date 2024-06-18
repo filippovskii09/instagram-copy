@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.infoUser {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+.activityes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
