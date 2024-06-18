@@ -16,7 +16,7 @@ const SignUpComponent = () => {
   });
 
   const [error, setError] = useState(null);
-  const { setUsers, users, activity, setActivity } = useContext(AuthContext);
+  const { setUsers, users } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -29,8 +29,6 @@ const SignUpComponent = () => {
     );
     if (existEmail) {
       setError("User with this email allready exists");
-      setActivity(user.posts, user.followers, user.following);
-      console.log(activity);
       return;
     } else if (existUsername) {
       setError("User with this username allready exists");

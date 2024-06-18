@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../common/context/AuthContext";
 import styles from "../Profile/Profile.module.scss";
 import AvatarImage from "../../../../public/images/avatar.png";
-// import styles from ".//Profile.module.scss";
 
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
@@ -17,15 +16,15 @@ const Profile = () => {
           <img src={AvatarImage} alt="" />
           <ul className={styles.activityes}>
             <li className={styles.item}>
-              {posts.length === 0 ? 0 : posts.length}
+              {posts.length}
               <a href="#">Posts</a>
             </li>
             <li className={styles.item}>
-              {followers.length === 0 ? 0 : followers.length}
+              {followers.length}
               <a href="#">Followers</a>
             </li>
             <li className={styles.item}>
-              {following.length === 0 ? 0 : following.length}
+              {following.length}
               <a href="#">Following</a>
             </li>
           </ul>

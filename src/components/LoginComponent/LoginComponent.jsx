@@ -24,11 +24,10 @@ const LoginComponent = () => {
         existUser.email === user.email && existUser.password === user.password,
     );
 
-    console.log(existingUser);
     if (existingUser) {
       setIsLogin(true);
-      navigate("/profile");
       setCurrentUser(existingUser[0]);
+      navigate("/profile");
       return;
     } else {
       setError("Sign up");

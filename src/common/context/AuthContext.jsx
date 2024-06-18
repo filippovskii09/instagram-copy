@@ -8,7 +8,6 @@ export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const { users, setUsers } = useGetAllUsers();
   const { currentUser, setCurrentUser, isLogin, setIsLogin } = useCurrentUser();
-  // const [activity, setActivity] = useState(null);
 
   return (
     <AuthContext.Provider
