@@ -10,6 +10,9 @@ const SignUpComponent = () => {
     name: "",
     username: "",
     password: "",
+    posts: [],
+    followers: [],
+    following: [],
   });
 
   const [error, setError] = useState(null);

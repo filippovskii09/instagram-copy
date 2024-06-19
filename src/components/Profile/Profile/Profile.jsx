@@ -2,15 +2,16 @@ import styles from "./Profile.module.scss";
 import BackButtonImage from "/images/icons/back-icon.svg";
 import AvatarImage from "/images/avatar.png";
 const Profile = () => {
-  const userLogin = true;
+  const { currentUser } = useContext(AuthContext);
 
+  const { username, posts, followers, following } = currentUser;
   return (
     <section className={styles.profile}>
       <div className={styles.info}>
         {userLogin ? (
           <div className={styles.top}>
             <h5 className={`${styles.username} ${styles.active}`}>
-              filippovskii09
+						username
             </h5>
             <button className={styles.burger}>
               <div className={styles.line}></div>
@@ -23,7 +24,7 @@ const Profile = () => {
             <button className={styles.back}>
               <img src={BackButtonImage} alt="back-button" />
             </button>
-            <h5 className={styles.username}>filippovskii09</h5>
+            <h5 className={styles.username}>{username}</h5>
             <button className={styles.dots}>
               <div className={styles.dot}></div>
               <div className={styles.dot}></div>
@@ -36,15 +37,15 @@ const Profile = () => {
             <img src={AvatarImage} alt="avatar logo" className={styles.image} />
             <div className={styles.infoRow}>
               <div className={styles.infoColumn}>
-                <p className={styles.columnCount}>1,132</p>
+                <p className={styles.columnCount}>{posts.lenght}</p>
                 <p className={styles.columnName}>Posts</p>
               </div>
               <div className={styles.infoColumn}>
-                <p className={styles.columnCount}>60K</p>
+                <p className={styles.columnCount}>{followers.lenght}</p>
                 <p className={styles.columnName}>Followers</p>
               </div>
               <div className={styles.infoColumn}>
-                <p className={styles.columnCount}>4</p>
+                <p className={styles.columnCount}>{following.lenght}</p>
                 <p className={styles.columnName}>Following</p>
               </div>
             </div>
