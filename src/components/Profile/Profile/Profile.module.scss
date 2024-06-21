@@ -1,23 +1,110 @@
-.container {
+.profile {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
+  padding-top: 10px;
+  max-width: 530px;
+  margin: 0 auto;
+  @media (max-width: 530px) {
+    max-width: unset;
+    padding: 0px 16px;
+    padding-top: 10px;
+  }
 }
-.infoUser {
+.info {
   display: flex;
-  align-items: center;
-  gap: 35px;
+  flex-direction: column;
 }
-.activityes {
+.top {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  margin-bottom: 22px;
 }
-.item {
+.username {
+  font-weight: 500;
+}
+.dots {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  row-gap: 3px;
+}
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #000;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.userInfoTop {
+  display: flex;
+}
+.image {
+  width: 89px;
+  height: 89px;
+}
+.infoRow {
+  display: flex;
   align-items: center;
+  gap: 30px;
+  flex: 1 0 auto;
+  justify-content: center;
+}
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.columnCount {
+  font-size: 18px;
+  font-weight: 500;
+}
+.columnName {
+  font-size: 12px;
+}
+.userName {
+  font-size: 14px;
+}
+.userActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+.action {
+  background: #dfdfdf;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+  transition: all 0.3s ease 0s;
+}
+.secondaryButton {
+  background: #1877f2;
+  color: #fff;
+}
+.burger {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.line {
+  width: 18px;
+  height: 3px;
+  background: #000;
+  border-radius: 30px;
+}
+.active {
+  font-size: 22px;
+  font-weight: 600;
 }
