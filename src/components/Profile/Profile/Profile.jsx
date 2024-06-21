@@ -1,12 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../common/context/AuthContext";
 import styles from "../Profile/Profile.module.scss";
 import AvatarImage from "../../../../public/images/avatar.png";
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
-
-  const { username, posts, followers, following } = currentUser;
 
   return (
     <>
