@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import styles from "./LoginComponent.module.scss";
-import { AuthContext } from "../../common/context/AuthContext";
-import MainButton from "../shared/MainButton/MainButton";
+import { AuthContext } from "../../../common/context/AuthContext";
+import MainButton from "../../shared/MainButton/MainButton";
 import { useNavigate } from "react-router-dom";
 import InstagramImage from "/public/images/instagram.png";
 
@@ -12,7 +12,7 @@ const LoginComponent = () => {
   });
 
   const [error, setError] = useState(null);
-  const { users, setCurrentUser, setIsLogin } = useContext(AuthContext);
+  const { users } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
