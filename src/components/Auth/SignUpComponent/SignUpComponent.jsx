@@ -1,9 +1,9 @@
-import { useState } from "react";
 import styles from "./SignUpComponent.module.scss";
 import MainButton from "../../shared/MainButton/MainButton";
 import InstagramImage from "/public/images/instagram.png";
-import useSignUpUserWithEmailAndPassword from "../../../common/hooks/useSignUpUserWithEmailAndPassword";
 import { useForm } from "react-hook-form";
+import useSignUpUserWithEmailAndPassword from "../../../common/hooks/auth/useSignUpUserWithEmailAndPassword";
+import { Link } from "react-router-dom";
 
 const SignUpComponent = () => {
   const {
@@ -93,7 +93,7 @@ const SignUpComponent = () => {
       </div>
       <MainButton disabled={loading} loading={loading} text="Sign Up" />
       <p className={styles.link}>
-        Already have an account? <span>Sign in</span>.
+        Already have an account? <Link to="/auth/login">Sign in</Link>.
       </p>
     </form>
   );

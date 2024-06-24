@@ -1,11 +1,5 @@
-import SignUpComponent from "../components/Auth/SignUpComponent/SignUpComponent";
-
 const HomePage = () => {
-  return (
-    <div className="wrapper">
-      <SignUpComponent />
-    </div>
-  );
+  return <div className="wrapper">Home page</div>;
 };
 
 export default HomePage;
