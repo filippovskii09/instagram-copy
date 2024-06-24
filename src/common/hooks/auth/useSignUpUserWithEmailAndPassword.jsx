@@ -1,10 +1,16 @@
 import { doc, setDoc } from "firebase/firestore";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { auth, firestore } from "../../firebase/firebase";
+import { auth, firestore } from "../../../firebase/firebase";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const useSignUpUserWithEmailAndPassword = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const signup = async (user) => {
     try {
@@ -30,6 +36,8 @@ const useSignUpUserWithEmailAndPassword = () => {
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userInfo);
         localStorage.setItem("user-info", JSON.stringify(userInfo));
+        setUser(true);
+        navigate("/");
       }
     } catch (error) {
       throw new Error("Error =>", error);

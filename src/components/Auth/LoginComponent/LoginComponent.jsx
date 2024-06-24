@@ -1,42 +1,24 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styles from "./LoginComponent.module.scss";
-import { AuthContext } from "../../../common/context/AuthContext";
+import InstagramImage from "/images/instagram.png";
 import MainButton from "../../shared/MainButton/MainButton";
-import { useNavigate } from "react-router-dom";
-import InstagramImage from "/public/images/instagram.png";
+import useLogin from "../../../common/hooks/auth/useLogin";
+import { Link } from "react-router-dom";
 
 const LoginComponent = () => {
-  const [user, setUser] = useState({
+  const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState(null);
-  const { users } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
+  const { login, loading, error } = useLogin();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const existingUser = users.filter(
-      (existUser) =>
-        existUser.email === user.email && existUser.password === user.password,
-    );
-
-    if (existingUser) {
-      setIsLogin(true);
-      setCurrentUser(existingUser[0]);
-      navigate("/profile");
-      return;
-    } else {
-      setError("Sign up");
-      setCurrentUser(false);
-    }
+    await login(userData);
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+    <form className={styles.form} method="post" onSubmit={handleSubmit}>
       <img src={InstagramImage} alt="instagram-logo" />
       <div className={styles.wrapper}>
         <input
@@ -44,23 +26,26 @@ const LoginComponent = () => {
           name="email"
           className="mainInput"
           placeholder="Email address"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          onChange={(e) => setUserData({ ...userData, email: e.target.value })}
         />
         <input
           type="password"
           name="password"
           className="mainInput"
           placeholder="Password"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          onChange={(e) =>
+            setUserData({ ...userData, password: e.target.value })
+          }
         />
-        {error && <p className={styles.error}>{error}</p>}
       </div>
       <MainButton
-        disabled={user.email.length === 0 || user.password.length === 0}
+        disabled={userData.email.length === 0 || userData.password.length === 0}
+        loading={loading}
         text="Log In"
       />
+      {error && <p>{error.message}</p>}
       <p className={styles.link}>
-        Dont have an account? <span>Sign Up</span>.
+        Dont have an account? <Link to="/auth/signup">Sign Up</Link>.
       </p>
     </form>
   );

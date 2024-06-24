@@ -7,6 +7,9 @@
   border-radius: 4px;
   transition: all 0.5s;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @media (max-width: 530px) {
     max-width: unset;
   }
