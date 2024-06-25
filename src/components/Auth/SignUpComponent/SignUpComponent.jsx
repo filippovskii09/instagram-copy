@@ -1,6 +1,6 @@
 import styles from "./SignUpComponent.module.scss";
 import MainButton from "../../shared/MainButton/MainButton";
-import InstagramImage from "/public/images/instagram.png";
+import InstagramImage from "/images/instagram.png";
 import { useForm } from "react-hook-form";
 import useSignUpUserWithEmailAndPassword from "../../../common/hooks/auth/useSignUpUserWithEmailAndPassword";
 import { Link } from "react-router-dom";
@@ -20,16 +20,13 @@ const SignUpComponent = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <img src={InstagramImage} alt="instagram-logo" />
-      <h5 className={styles.title}>
-        Sign up to see photos and videos from your friends.
-      </h5>
+      <h5 className={styles.title}>Sign up to see photos and videos from your friends.</h5>
       <div className={styles.wrapper}>
         <input
           type="email"
           name="email"
           className="mainInput"
           placeholder="Email address"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
           {...register("email", {
             required: "Email is required",
             pattern: /^\S+@\S+$/i,
@@ -42,19 +39,15 @@ const SignUpComponent = () => {
           name="name"
           className="mainInput"
           placeholder="Full name"
-          onChange={(e) => setUser({ ...user, fullname: e.target.value })}
           {...register("fullname", { required: "Full name is required" })}
         />
-        {errors.fullname && (
-          <p className={styles.error}>{errors.fullname.message}</p>
-        )}
+        {errors.fullname && <p className={styles.error}>{errors.fullname.message}</p>}
 
         <input
           type="text"
           name="username"
           className="mainInput"
           placeholder="User name"
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
           {...register("username", {
             required: "Username is required",
             minLength: {
@@ -63,16 +56,13 @@ const SignUpComponent = () => {
             },
           })}
         />
-        {errors.username && (
-          <p className={styles.error}>{errors.username.message}</p>
-        )}
+        {errors.username && <p className={styles.error}>{errors.username.message}</p>}
 
         <input
           type="password"
           name="password"
           className="mainInput"
           placeholder="Password"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
           {...register("password", {
             required: "Password is required",
             minLength: {
@@ -85,9 +75,7 @@ const SignUpComponent = () => {
             },
           })}
         />
-        {errors.password && (
-          <p className={styles.error}>{errors.password.message}</p>
-        )}
+        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
 
         {error && <p className={styles.error}>{error.message}</p>}
       </div>

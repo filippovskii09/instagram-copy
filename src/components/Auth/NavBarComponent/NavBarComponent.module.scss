@@ -1,0 +1,43 @@
+.wrapperSideBar {
+  position: fixed;
+  width: 100%;
+  max-width: 250px;
+  height: 100vh;
+  padding: 8px 12px;
+}
+.logo {
+  max-width: 103px;
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}
+.menuList {
+  display: grid;
+  gap: 10px;
+}
+.menuItem {
+  padding: 12px;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #f5f1f1;
+    }
+  }
+  @media (any-hover: hover) {
+    &:hover .menuIcon {
+      transform: translate(-3px, 0);
+    }
+  }
+  transition: all 0.3s;
+  border-radius: 4px;
+}
+.menuLink {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  color: #000000;
+  font-weight: 700;
+}
+.menuIcon {
+  width: 40px;
+  height: 40px;
+}
