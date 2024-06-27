@@ -1,0 +1,20 @@
+.item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 4px;
+  font-size: 14px;
+}
+.nick {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text {
+  color: rgb(115, 115, 115);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
