@@ -5,12 +5,14 @@ import { useParams } from "react-router-dom";
 const ProfilePage = () => {
   const { username } = useParams();
   const { isLoading, userProfile } = useGetUserProfileByUserName(username);
-  const userNotFound = !isLoading && !userProfile;
-  if (userNotFound) return <p>Ooops, no user</p>;
 
   return (
     <div className="wrapper">
-      <main className="page">{userProfile?.username}</main>
+      <main className="page">
+        <h2>{userProfile?.username}</h2>
+        <p>following {userProfile?.following.length}</p>
+        <p>followers {userProfile?.followers.length}</p>
+      </main>
     </div>
   );
 };

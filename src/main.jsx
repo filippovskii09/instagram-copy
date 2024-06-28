@@ -3,9 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./main.scss";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/router.jsx";
-import AuthProvider from "./common/context/auth/AuthContext.jsx";
 import UserProfileProvider from "./common/context/UserProfileContext.jsx";
-
+import AuthProvider from "./common/context/AuthContext.jsx";
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(

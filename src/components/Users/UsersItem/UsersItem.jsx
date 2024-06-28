@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import FollowButton from "../../shared/FollowButton/FollowButton";
 import styles from "./UsersItem.module.scss";
+import useFollowUser from "../../../common/hooks/useFollowUser";
+import Spinner from "../../shared/Spinner/Spinner";
 
 const UsersItem = ({ item }) => {
   const {
@@ -11,17 +12,26 @@ const UsersItem = ({ item }) => {
     following,
     posts,
     profileImageURL,
+    uid,
   } = item;
+  const { isUpdating, isFollowing, handleFollowUser } = useFollowUser(item);
+  const text = isFollowing ? "Unfollow" : "Follow";
 
   return (
     <div className={styles.item}>
       <div className={styles.info}>
-        <Link to={`/${username}`} className={styles.nick}>
+        <Link to={`/user/${username}`} className={styles.nick}>
           {username}
         </Link>
         <p className={styles.text}>{fullname}</p>
       </div>
-      <FollowButton />
+      <button
+        disabled={isUpdating}
+        className={styles.button}
+        onClick={() => handleFollowUser()}
+      >
+        {isUpdating ? <Spinner /> : text}
+      </button>
     </div>
   );
 };

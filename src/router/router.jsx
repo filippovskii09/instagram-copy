@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/:username",
+    path: "/user/:username",
     element: <ProfilePage />,
   },
 ]);

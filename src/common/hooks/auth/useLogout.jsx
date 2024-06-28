@@ -12,8 +12,8 @@ const useLogout = () => {
   const handleLogout = async () => {
     try {
       await signOut();
-      localStorage.removeItem("user-info");
-      setUser(false);
+      localStorage.removeItem("user");
+      setUser(null);
       navigate("/auth/login");
     } catch (error) {
       console.error(error);
