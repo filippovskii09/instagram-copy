@@ -4,17 +4,88 @@
   max-width: 250px;
   height: 100vh;
   padding: 8px 12px;
+  border-right: 1px solid #dcdbdb;
+  overflow: hidden;
+  min-height: 100%;
+  @media (max-width: 1260px) {
+    max-width: 75px;
+    padding: 8px 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  @media (max-width: 767.98px) {
+    max-width: 100%;
+    height: 75px;
+    border-right: none;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+  }
 }
+
+.sideBarContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  @media (min-width: 767.98px) {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100%;
+  }
+  @media (max-width: 767.98px) {
+    border-top: 1px solid #dcdbdb;
+  }
+}
+
 .logo {
   max-width: 103px;
   &:not(:last-child) {
     margin-bottom: 25px;
   }
+
+  @media (max-width: 1260px) {
+    display: none;
+  }
 }
+
+.wrapperInstIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 12px;
+}
+
+.instagramIcon {
+  display: none;
+  @media (max-width: 1260px) {
+    display: inline-block;
+    max-width: 30px;
+    height: 30px;
+  }
+}
+
+.menu {
+  flex: 1 1 auto;
+  @media (min-width: 767.98px) {
+    width: 100%;
+  }
+}
+
 .menuList {
-  display: grid;
-  gap: 10px;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  @media (max-width: 767.98px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-around;
+  }
 }
+
 .menuItem {
   padding: 12px;
   @media (any-hover: hover) {
@@ -28,16 +99,187 @@
     }
   }
   transition: all 0.3s;
-  border-radius: 4px;
+  border-radius: 7px;
 }
+
 .menuLink {
   display: flex;
   align-items: center;
   column-gap: 10px;
   color: #000000;
-  font-weight: 700;
+  @media (max-width: 1260px) {
+    span + span {
+      display: none;
+    }
+  }
 }
+
 .menuIcon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+  stroke-width: 5px;
+  display: inline-block;
+}
+svg path {
+  stroke-width: 1;
+  stroke: black;
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  transition: transform 0.3s;
+  padding: 12px;
+  border-radius: 7px;
+  @media (min-width: 767.98px) {
+    width: 100%;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #f5f1f1;
+    }
+    &:hover::before {
+      transform: translate(-3px, 0);
+    }
+  }
+
+  &::before {
+    content: "";
+    background: url("/images/icons/more-icon.svg");
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 1260px) {
+    font-size: 0;
+    gap: 0px;
+  }
+}
+
+//====================== Popup ===========================
+
+.popup {
+  position: fixed; /* Или absolute, в зависимости от вашей структуры */
+  bottom: 10%;
+  left: 3%;
+  background: white;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 280px;
+  border-radius: 10px;
+}
+
+.popupContent {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.buttonSwitch {
+  padding: 12px;
+  transition: all 0.3s;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #f5f1f1;
+    }
+    border-radius: 7px;
+  }
+
+  &::before {
+    content: "";
+    background: url("/images/icons/switch.svg") 0 0 / 100% 100% no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+}
+
+//==========================================
+
+.active {
+  font-weight: 700;
+  svg path {
+    stroke-width: 2; /* задаем ширину линии для элементов path внутри SVG */
+    transition: all 0.3s;
+  }
+}
+
+//============== themePopup =================
+
+.themePopup {
+  position: fixed;
+  bottom: 10%;
+  left: 3%;
+  background: white;
+  box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 280px;
+  border-radius: 10px;
+}
+
+.themePopupHeader {
+  padding: 15px;
+  border-bottom: 1px solid rgb(220, 219, 219);
+  width: 100%;
+}
+
+.closeThemePopup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+  width: 100%;
+  @media (any-hover: hover) {
+    &:hover::before {
+      transform: translate(-3px);
+    }
+  }
+
+  &::before {
+    content: "";
+    background: url("/images/icons/arrow-back.svg") 0 0 / 100% 100% no-repeat;
+    width: 17px;
+    height: 17px;
+    transform: rotate(90deg);
+    pointer-events: all;
+    transition: transform 0.3s;
+  }
+
+  &::after {
+    content: "";
+    background: url("/images/icons/switch.svg") 0 0 / 100% 100% no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+
+  &.darkMode {
+    &::after {
+      content: "";
+      background: url("/images/icons/moon-icon.svg") 0 0 / 100% 100% no-repeat;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+  }
+}
+
+.popupSwitcher {
+  padding: 15px;
+  display: flex;
+  gap: 20px;
 }

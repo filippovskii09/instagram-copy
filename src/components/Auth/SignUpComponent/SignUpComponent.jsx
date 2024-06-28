@@ -20,7 +20,9 @@ const SignUpComponent = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <img src={InstagramImage} alt="instagram-logo" />
-      <h5 className={styles.title}>Sign up to see photos and videos from your friends.</h5>
+      <h5 className={styles.title}>
+        Sign up to see photos and videos from your friends.
+      </h5>
       <div className={styles.wrapper}>
         <input
           type="email"
@@ -41,7 +43,9 @@ const SignUpComponent = () => {
           placeholder="Full name"
           {...register("fullname", { required: "Full name is required" })}
         />
-        {errors.fullname && <p className={styles.error}>{errors.fullname.message}</p>}
+        {errors.fullname && (
+          <p className={styles.error}>{errors.fullname.message}</p>
+        )}
 
         <input
           type="text"
@@ -56,7 +60,9 @@ const SignUpComponent = () => {
             },
           })}
         />
-        {errors.username && <p className={styles.error}>{errors.username.message}</p>}
+        {errors.username && (
+          <p className={styles.error}>{errors.username.message}</p>
+        )}
 
         <input
           type="password"
@@ -75,7 +81,9 @@ const SignUpComponent = () => {
             },
           })}
         />
-        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+        {errors.password && (
+          <p className={styles.error}>{errors.password.message}</p>
+        )}
 
         {error && <p className={styles.error}>{error.message}</p>}
       </div>
