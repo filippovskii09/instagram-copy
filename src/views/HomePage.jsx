@@ -9,8 +9,8 @@ const HomePage = () => {
         className="page"
         style={{ display: "flex", justifyContent: "center" }}
       >
-				<UsersList />
-			</main>
+        <UsersList />
+      </main>
     </div>
   );
 };

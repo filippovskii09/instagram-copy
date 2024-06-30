@@ -14,12 +14,12 @@ ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <AuthProvider>
       <UserProfileProvider>
-      	<PopupProvider>
-      	  <ThemeProvider>
-					<RouterProvider router={router} />
-      	  </ThemeProvider>
-      	</PopupProvider>
-			</UserProfileProvider>
+        <PopupProvider>
+          <ThemeProvider>
+            <RouterProvider router={router} />
+          </ThemeProvider>
+        </PopupProvider>
+      </UserProfileProvider>
     </AuthProvider>
   </React.StrictMode>,
 );
