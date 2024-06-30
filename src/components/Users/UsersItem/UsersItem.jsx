@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./UsersItem.module.scss";
 import useFollowUser from "../../../common/hooks/useFollowUser";
 import Spinner from "../../shared/Spinner/Spinner";
+import ProfileImage from "../../shared/ProfileImage/ProfileImage";
 
 const UsersItem = ({ item }) => {
   const {
@@ -19,11 +20,14 @@ const UsersItem = ({ item }) => {
 
   return (
     <div className={styles.item}>
-      <div className={styles.info}>
-        <Link to={`/user/${username}`} className={styles.nick}>
-          {username}
-        </Link>
-        <p className={styles.text}>{fullname}</p>
+      <div className={styles.main}>
+        <ProfileImage profileImageURL={profileImageURL} />
+        <div className={styles.info}>
+          <Link to={`/user/${username}`} className={styles.nick}>
+            {username}
+          </Link>
+          <p className={styles.text}>{fullname}</p>
+        </div>
       </div>
       <button
         disabled={isUpdating}
