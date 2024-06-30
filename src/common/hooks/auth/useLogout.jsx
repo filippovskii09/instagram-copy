@@ -1,7 +1,7 @@
 import { useSignOut } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase/firebase";
 import { useContext } from "react";
-import { AuthContext } from "../../context/auth/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const useLogout = () => {

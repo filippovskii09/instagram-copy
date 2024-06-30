@@ -28,7 +28,7 @@ const useFollowUser = (item) => {
       if (isFollowing) {
         setUser({
           ...user,
-          following: user.following.filter((uid) => uid !== uid),
+          following: user.following.filter((uid) => uid !== item.uid),
         });
         setUserProfile({
           ...item,

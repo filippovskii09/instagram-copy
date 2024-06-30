@@ -30,7 +30,7 @@ const NavBarComponent = () => {
       icon: <HomeIcon />,
       alt: "home-icon",
       title: "Home",
-      link: "",
+      link: "/",
     },
     {
       id: "2",
@@ -58,7 +58,7 @@ const NavBarComponent = () => {
       icon: <ProfileIcon />,
       alt: "profile-icon",
       title: "Profile",
-      link: "",
+      link: "/account",
     },
   ];
 

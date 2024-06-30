@@ -4,7 +4,6 @@ import styles from "./EditProfile.module.scss";
 import ProfileImage from "../shared/ProfileImage/ProfileImage";
 import useUploadProfileImage from "../../common/hooks/uploadImage/profile/useUploadProfileImage";
 import Spinner from "../shared/Spinner/Spinner";
-import { uploadProfileImage } from "../../common/utils/uploadProfileImage";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
@@ -35,6 +34,12 @@ const EditProfile = () => {
   const { isUploading, error, handleUploadProfileImage } =
     useUploadProfileImage();
 
+  const handleUploadImage = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
   return (
     <>
       <div className={styles.userInfoWrapper}>
@@ -51,7 +56,7 @@ const EditProfile = () => {
         </div>
         <button
           className={styles.userAction}
-          onClick={uploadProfileImage(fileInputRef)}
+          onClick={handleUploadImage}
           disabled={isUploading}
         >
           {profileImageURL ? "Change image" : "Add image"}
