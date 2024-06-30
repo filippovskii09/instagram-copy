@@ -1,0 +1,13 @@
+.logOutBtn {
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  border-radius: 7px;
+  transition: all 0.3s;
+  display: inline-block;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #f5f1f1;
+    }
+  }
+}
