@@ -1,3 +1,4 @@
+import UsersList from "../components/Users/UsersList/UsersList";
 import NavBarComponent from "../components/NavBarComponent/NavBarComponent";
 
 const HomePage = () => {
@@ -7,7 +8,9 @@ const HomePage = () => {
       <main
         className="page"
         style={{ display: "flex", justifyContent: "center" }}
-      ></main>
+      >
+        <UsersList />
+      </main>
     </div>
   );
 };

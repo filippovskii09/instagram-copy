@@ -2,7 +2,7 @@ import { auth, firestore } from "../../../firebase/firebase";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { useContext } from "react";
-import { AuthContext } from "../../context/auth/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const useLogin = () => {
@@ -25,8 +25,8 @@ const useLogin = () => {
       if (loginUser) {
         const docRef = doc(firestore, "users", loginUser.user.uid);
         const docSnap = await getDoc(docRef);
-        localStorage.setItem("user-info", JSON.stringify(docSnap.data()));
-        setUser(true);
+        localStorage.setItem("user", JSON.stringify(docSnap.data()));
+        setUser(docSnap.data());
         navigate("/");
       }
     } catch (error) {

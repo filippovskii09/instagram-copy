@@ -7,11 +7,25 @@
   }
 }
 
-.spinner {
+.spinnerLight {
   width: 16px;
   height: 16px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-top: 3px solid #fff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+.spinnerDark {
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #000000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.largeSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #000000;
 }

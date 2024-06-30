@@ -2,7 +2,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth, firestore } from "../../../firebase/firebase";
 import { useContext } from "react";
-import { AuthContext } from "../../context/auth/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const useSignUpUserWithEmailAndPassword = () => {
@@ -35,8 +35,8 @@ const useSignUpUserWithEmailAndPassword = () => {
           createdAt: Date.now(),
         };
         await setDoc(doc(firestore, "users", newUser.user.uid), userInfo);
-        localStorage.setItem("user-info", JSON.stringify(userInfo));
-        setUser(true);
+        localStorage.setItem("user", JSON.stringify(userInfo));
+        setUser(userInfo);
         navigate("/");
       }
     } catch (error) {
