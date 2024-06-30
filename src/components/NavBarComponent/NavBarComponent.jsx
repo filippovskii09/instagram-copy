@@ -1,19 +1,24 @@
-import { useState, useEffect, useContext } from "react";
-import { ReactComponent as HomeIcon } from "/public/images/icons/home-icon.svg";
-import { ReactComponent as MessagesIcon } from "/public/images/icons/message-icon.svg";
-import { ReactComponent as ProfileIcon } from "/public/images/icons/profile-icon.svg";
-import { ReactComponent as InstagramIcon } from "/public/images/icons/inst-icon.svg";
-import { Switch, FormControlLabel } from "@mui/material";
-import InstagramImage from "/images/instagram.png";
-import styles from "./NavBarComponent.module.scss";
-import { Link } from "react-router-dom";
-import LogOutButton from "../LogOutButton/LogOutButton";
-import { PopupContext } from "../../../common/context/PopupContext";
-import Popup from "../../Popup/Popup";
-import { ThemeContext } from "../../../common/context/ThemeContext";
+import { useContext, useEffect, useState } from "react";
+import {
+  HomeIcon,
+  MessagesIcon,
+  ProfileIcon,
+  InstagramIcon,
+  SearchIcon,
+  CreateIcon,
+  Switch,
+  FormControlLabel,
+  InstagramImage,
+  styles,
+  Link,
+  LogOutButton,
+  PopupContext,
+  Popup,
+  ThemeContext,
+} from "./imports";
 
 const NavBarComponent = () => {
-  const { isPopupVisible, setIsPopupVisible } = useContext(PopupContext);
+  const { popupContent, setPopupContent } = useContext(PopupContext);
   const [content, setContent] = useState(true);
   const [activeId, setActiveId] = useState(null);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1260);
@@ -23,28 +28,42 @@ const NavBarComponent = () => {
     {
       id: "1",
       icon: <HomeIcon />,
-      alt: "home-logo",
+      alt: "home-icon",
       title: "Home",
       link: "",
     },
     {
       id: "2",
+      role: "button",
+      icon: <SearchIcon />,
+      alt: "seach-icon",
+      title: "Search",
+    },
+    {
+      id: "3",
       icon: <MessagesIcon />,
-      alt: "message-logo",
+      alt: "message-icon",
       title: "Messages",
       link: "",
     },
     {
-      id: "3",
+      id: "4",
+      role: "button",
+      icon: <CreateIcon />,
+      alt: "create-icon",
+      title: "Create",
+    },
+    {
+      id: "5",
       icon: <ProfileIcon />,
-      alt: "profile-logo",
+      alt: "profile-icon",
       title: "Profile",
       link: "",
     },
   ];
 
   const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
+    setPopupContent(!popupContent);
   };
 
   const handleItemClick = (id) => {
@@ -78,13 +97,10 @@ const NavBarComponent = () => {
 
   return (
     <>
-      <div
-        className={`${styles.wrapperSideBar} ${theme ? styles.darkTheme : ""}`}
-      >
+      <div className={`${styles.wrapperSideBar} ${theme && styles.darkTheme}`}>
         <div className={styles.sideBarContent}>
           {isMobileView ? (
             <div className={styles.wrapperInstIcon}>
-              {" "}
               <InstagramIcon className={styles.instagramIcon} />
             </div>
           ) : (
@@ -96,36 +112,54 @@ const NavBarComponent = () => {
           )}
           <nav className={styles.menu}>
             <ul className={styles.menuList}>
-              {navigation.map((item) => (
-                <li
-                  key={item.id}
-                  className={`${styles.menuItem} ${activeId === item.id ? styles.active : ""} ${theme ? styles.darkMode : ""}`}
-                  onClick={() => handleItemClick(item.id)}
-                >
-                  <Link
-                    className={`${styles.menuLink} ${theme ? styles.darkMode : ""}`}
-                    to={item.link}
+              {navigation.map((item) =>
+                item?.role ? (
+                  <button
+                    key={item.id}
+                    className={`${styles.menuButton} ${activeId === item.id && styles.active} ${theme && styles.darkMode}`}
+                    onClick={() => handleItemClick(item.id)}
                   >
                     <span
-                      className={`${styles.menuIcon} ${theme ? styles.darkMode : ""}`}
+                      className={`${styles.menuIcon} ${theme && styles.darkMode}`}
                     >
-                      {" "}
                       {item.icon}
                     </span>
-                    <span> {item.title}</span>
-                  </Link>
-                </li>
-              ))}
+                    <span
+                      className={`${styles.menuLink} ${theme && styles.darkMode}`}
+                    >
+                      {item.title}
+                    </span>
+                  </button>
+                ) : (
+                  <li
+                    key={item.id}
+                    className={`${styles.menuItem} ${activeId === item.id && styles.active} ${theme && styles.darkMode}`}
+                    onClick={() => handleItemClick(item.id)}
+                  >
+                    <Link
+                      className={`${styles.menuLink} ${theme && styles.darkMode}`}
+                      to={item.link}
+                    >
+                      <span
+                        className={`${styles.menuIcon} ${theme && styles.darkMode}`}
+                      >
+                        {item.icon}
+                      </span>
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
           <button
             type="button"
             onClick={handleMoreButtonClick}
-            className={`${styles.moreButton} ${isPopupVisible ? styles.active : ""} ${theme ? styles.darkMode : ""}`}
+            className={`${styles.moreButton} ${popupContent && styles.active} ${theme && styles.darkMode}`}
           >
             More
           </button>
-          {isPopupVisible && (
+          {popupContent && (
             <Popup>
               {content ? (
                 <div className={styles.popupContent}>
@@ -141,7 +175,7 @@ const NavBarComponent = () => {
                 <div className={styles.themePopupContent}>
                   <div className={styles.themePopupHeader}>
                     <button
-                      className={`${styles.closeThemePopup} ${theme ? styles.darkMode : ""}`}
+                      className={`${styles.closeThemePopup} ${theme && styles.darkMode}`}
                       onClick={handleSwitchButton}
                     >
                       Switch appearance

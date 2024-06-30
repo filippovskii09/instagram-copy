@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { PopupContext } from "../../context/PopupContext";
 
 const useClosePopup = (popupRef) => {
-  const { setIsPopupVisible } = useContext(PopupContext);
+  const { setPopupContent } = useContext(PopupContext);
   const handleClickOutside = (event) => {
     if (popupRef.current && !popupRef.current.contains(event.target)) {
-      setIsPopupVisible(false);
+      setPopupContent(false);
     }
   };
   return handleClickOutside;

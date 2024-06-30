@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 export const PopupContext = createContext(false);
 
 const PopupProvider = ({ children }) => {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [popupContent, setPopupContent] = useState(false);
   return (
-    <PopupContext.Provider value={{ isPopupVisible, setIsPopupVisible }}>
+    <PopupContext.Provider value={{ popupContent, setPopupContent }}>
       {children}
     </PopupContext.Provider>
   );
