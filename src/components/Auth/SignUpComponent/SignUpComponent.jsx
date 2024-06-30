@@ -1,6 +1,6 @@
 import styles from "./SignUpComponent.module.scss";
 import MainButton from "../../shared/MainButton/MainButton";
-import InstagramImage from "/public/images/instagram.png";
+import InstagramImage from "/images/instagram.png";
 import { useForm } from "react-hook-form";
 import useSignUpUserWithEmailAndPassword from "../../../common/hooks/auth/useSignUpUserWithEmailAndPassword";
 import { Link } from "react-router-dom";
@@ -29,7 +29,6 @@ const SignUpComponent = () => {
           name="email"
           className="mainInput"
           placeholder="Email address"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
           {...register("email", {
             required: "Email is required",
             pattern: /^\S+@\S+$/i,
@@ -42,7 +41,6 @@ const SignUpComponent = () => {
           name="name"
           className="mainInput"
           placeholder="Full name"
-          onChange={(e) => setUser({ ...user, fullname: e.target.value })}
           {...register("fullname", { required: "Full name is required" })}
         />
         {errors.fullname && (
@@ -54,7 +52,6 @@ const SignUpComponent = () => {
           name="username"
           className="mainInput"
           placeholder="User name"
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
           {...register("username", {
             required: "Username is required",
             minLength: {
@@ -72,7 +69,6 @@ const SignUpComponent = () => {
           name="password"
           className="mainInput"
           placeholder="Password"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
           {...register("password", {
             required: "Password is required",
             minLength: {
