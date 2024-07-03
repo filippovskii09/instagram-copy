@@ -29,7 +29,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 5px;
   @media (min-width: 767.98px) {
     flex-direction: column;
     align-items: flex-start;
@@ -68,7 +67,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 12px;
+  padding: 12px;
   @media (max-width: 767.98px) {
     display: none;
   }
@@ -109,18 +108,16 @@
 
 .menuItem {
   padding: 12px;
+  border-radius: 7px;
   @media (any-hover: hover) {
     &:hover {
       background-color: #f5f1f1;
     }
-  }
-  @media (any-hover: hover) {
     &:hover .menuIcon {
       transform: translate(-3px, 0);
     }
   }
-  transition: all 0.3s;
-  border-radius: 7px;
+
   @media (max-width: 500px) {
     padding: 8px;
   }
@@ -132,6 +129,15 @@
   padding: 12px;
   column-gap: 10px;
   font-size: 16px;
+  border-radius: 7px;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #f5f1f1;
+    }
+    &:hover .menuIcon {
+      transform: translate(-3px, 0);
+    }
+  }
   @media (max-width: 1260px) {
     span + span {
       display: none;
@@ -252,7 +258,7 @@ svg path {
 .active {
   font-weight: 700;
   svg path {
-    stroke-width: 2; /* задаем ширину линии для элементов path внутри SVG */
+    stroke-width: 2;
     transition: all 0.3s;
   }
 }

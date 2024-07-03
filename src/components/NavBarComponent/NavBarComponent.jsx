@@ -58,7 +58,7 @@ const NavBarComponent = () => {
       icon: <ProfileIcon />,
       alt: "profile-icon",
       title: "Profile",
-      link: "",
+      link: "account",
     },
   ];
 
@@ -68,6 +68,7 @@ const NavBarComponent = () => {
 
   const handleItemClick = (id) => {
     setActiveId(id);
+    console.log(id);
   };
 
   const handleSwitchChange = (event) => {

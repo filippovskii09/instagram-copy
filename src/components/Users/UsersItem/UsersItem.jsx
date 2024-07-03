@@ -21,7 +21,7 @@ const UsersItem = ({ item }) => {
   return (
     <div className={styles.item}>
       <div className={styles.main}>
-        <ProfileImage profileImageURL={profileImageURL} />
+        <ProfileImage sm={true} profileImageURL={profileImageURL} />
         <div className={styles.info}>
           <Link to={`/user/${username}`} className={styles.nick}>
             {username}
