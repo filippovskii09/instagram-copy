@@ -9,9 +9,9 @@ import InstagramImage from "/images/instagram.png";
 import styles from "../NavBarComponent/NavBarComponent.module.scss";
 import { Link } from "react-router-dom";
 import LogOutButton from "../Auth/LogOutButton/LogOutButton";
-import { PopupContext } from "../../common/context/PopupContext";
-import Popup from "../Popup/Popup";
+import { PopupContext } from "../../common/context/popups/PopupContext";
 import { ThemeContext } from "../../common/context/ThemeContext";
+import Popup from "../Popups/Popup/Popup";
 
 export {
   HomeIcon,

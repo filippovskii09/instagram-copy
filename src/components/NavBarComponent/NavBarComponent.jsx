@@ -16,9 +16,11 @@ import {
   Popup,
   ThemeContext,
 } from "./imports";
+import { PostPopupContext } from "../../common/context/popups/PostPopupContext";
 
 const NavBarComponent = () => {
   const { popupContent, setPopupContent } = useContext(PopupContext);
+  const { setPostPopup } = useContext(PostPopupContext);
   const [content, setContent] = useState(true);
   const [activeId, setActiveId] = useState(null);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1260);
@@ -52,6 +54,7 @@ const NavBarComponent = () => {
       icon: <CreateIcon />,
       alt: "create-icon",
       title: "Create",
+      click: () => setPostPopup(true),
     },
     {
       id: "5",
@@ -117,7 +120,7 @@ const NavBarComponent = () => {
                   <button
                     key={item.id}
                     className={`${styles.menuButton} ${activeId === item.id && styles.active} ${theme && styles.darkMode}`}
-                    onClick={() => handleItemClick(item.id)}
+                    onClick={item?.click}
                   >
                     <span
                       className={`${styles.menuIcon} ${theme && styles.darkMode}`}

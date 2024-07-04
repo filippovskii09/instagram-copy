@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
-import styles from "../NavBarComponent/NavBarComponent.module.scss";
-import PropTypes from "prop-types";
-import useClosePopup from "../../common/hooks/popup/useClosePopup";
+import React, { useEffect, useRef } from "react";
+import useClosePopup from "../../../common/hooks/popups/useClosePopup";
+import styles from "./PostPopup.module.scss";
 
-const Popup = ({ children }) => {
+const PostPopup = ({ children }) => {
   const popupRef = useRef(null);
 
   const handleClickOutside = useClosePopup(popupRef);
@@ -22,8 +21,4 @@ const Popup = ({ children }) => {
   );
 };
 
-export default Popup;
-
-Popup.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export default PostPopup;
