@@ -27,7 +27,7 @@ const SignUpComponent = () => {
         <input
           type="email"
           name="email"
-          className="mainInput"
+          className={`mainInput ${errors.email && styles.inputError}`}
           placeholder="Email address"
           {...register("email", {
             required: "Email is required",
@@ -39,7 +39,7 @@ const SignUpComponent = () => {
         <input
           type="text"
           name="name"
-          className="mainInput"
+          className={`mainInput ${errors.fullname && styles.inputError}`}
           placeholder="Full name"
           {...register("fullname", { required: "Full name is required" })}
         />
@@ -50,7 +50,7 @@ const SignUpComponent = () => {
         <input
           type="text"
           name="username"
-          className="mainInput"
+          className={`mainInput ${errors.username && styles.inputError}`}
           placeholder="User name"
           {...register("username", {
             required: "Username is required",
@@ -67,7 +67,7 @@ const SignUpComponent = () => {
         <input
           type="password"
           name="password"
-          className="mainInput"
+          className={`mainInput ${errors.password && styles.inputError}`}
           placeholder="Password"
           {...register("password", {
             required: "Password is required",

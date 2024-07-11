@@ -1,11 +1,13 @@
 import UsersList from "../components/Users/UsersList/UsersList";
 import NavBarComponent from "../components/NavBarComponent/NavBarComponent";
 import { useContext } from "react";
-import { PostPopupContext } from "../common/context/popups/PostPopupContext";
+import { PopupContext } from "../common/context/PopupContext";
 import CreatePost from "../components/Post/CreatePost/CreatePost";
+import ConfirmationPopup from "../components/Popups/СonfirmationPopup/ConfirmationPopup";
 
 const HomePage = () => {
-  const { postPopup } = useContext(PostPopupContext);
+  const { createPostPopup, confirmationPopup } = useContext(PopupContext);
+
   return (
     <>
       <div className="wrapper">
@@ -16,8 +18,9 @@ const HomePage = () => {
         >
           <UsersList />
         </main>
+        {createPostPopup && <CreatePost />}
+        {confirmationPopup && <ConfirmationPopup />}
       </div>
-      {postPopup && <CreatePost />}
     </>
   );
 };

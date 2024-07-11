@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "../../NavBarComponent/NavBarComponent.module.scss";
 import PropTypes from "prop-types";
-import useClosePopup from "../../../common/hooks/popups/useClosePopup";
+import useClosePopup from "../../../common/hooks/useClosePopup";
 
 const Popup = ({ children }) => {
   const popupRef = useRef(null);

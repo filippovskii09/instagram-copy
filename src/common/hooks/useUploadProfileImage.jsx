@@ -1,8 +1,8 @@
 import { doc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { useContext, useState } from "react";
-import { AuthContext } from "../../../context/AuthContext";
-import { firestore } from "../../../../firebase/firebase";
+import { AuthContext } from "../context/AuthContext";
+import { firestore } from "../../firebase/firebase";
 
 const useUploadProfileImage = () => {
   const [isUploading, setIsUploading] = useState(false);

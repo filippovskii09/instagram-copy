@@ -5,8 +5,13 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.popupDescription {
+  width: 800px;
   height: 500px;
-  box-shadow: 0 0 45px rgba(0, 0, 0, 0.7);
-  padding: 20px;
 }

@@ -16,12 +16,11 @@ import {
   Popup,
   ThemeContext,
 } from "./imports";
-import { PostPopupContext } from "../../common/context/popups/PostPopupContext";
 
 const NavBarComponent = () => {
-  const { popupContent, setPopupContent } = useContext(PopupContext);
-  const { setPostPopup } = useContext(PostPopupContext);
-  const [content, setContent] = useState(true);
+  const { settingsPopup, setSettingsPopup, setCreatePostPopup } =
+    useContext(PopupContext);
+  const [settingPopupContent, setSettingPopupContent] = useState(true);
   const [activeId, setActiveId] = useState(null);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1260);
   const { theme, setTheme } = useContext(ThemeContext);
@@ -54,7 +53,10 @@ const NavBarComponent = () => {
       icon: <CreateIcon />,
       alt: "create-icon",
       title: "Create",
-      click: () => setPostPopup(true),
+      click: () => {
+        setCreatePostPopup(true);
+        console.log("hello");
+      },
     },
     {
       id: "5",
@@ -66,7 +68,7 @@ const NavBarComponent = () => {
   ];
 
   const togglePopup = () => {
-    setPopupContent(!popupContent);
+    setSettingsPopup(!settingsPopup);
   };
 
   const handleItemClick = (id) => {
@@ -95,7 +97,7 @@ const NavBarComponent = () => {
 
   const handleSwitchButton = (event) => {
     event.stopPropagation();
-    setContent(!content);
+    setSettingPopupContent(!settingPopupContent);
   };
 
   return (
@@ -158,13 +160,13 @@ const NavBarComponent = () => {
           <button
             type="button"
             onClick={handleMoreButtonClick}
-            className={`${styles.moreButton} ${popupContent && styles.active} ${theme && styles.darkMode}`}
+            className={`${styles.moreButton} ${settingsPopup && styles.active} ${theme && styles.darkMode}`}
           >
             More
           </button>
-          {popupContent && (
+          {settingsPopup && (
             <Popup>
-              {content ? (
+              {settingPopupContent ? (
                 <div className={styles.popupContent}>
                   <button
                     className={styles.buttonSwitch}

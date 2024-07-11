@@ -2,8 +2,8 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../common/context/AuthContext";
 import styles from "./EditProfile.module.scss";
 import ProfileImage from "../shared/ProfileImage/ProfileImage";
-import useUploadProfileImage from "../../common/hooks/uploadImage/profile/useUploadProfileImage";
 import Spinner from "../shared/Spinner/Spinner";
+import useUploadProfileImage from "../../common/hooks/useUploadProfileImage";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
